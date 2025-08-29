@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -20,59 +21,77 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
+    [dir="rtl"] { direction: rtl; text-align: right; }
   </style>
 </head>
-<body class="bg-white text-black">
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white">
 
   <!-- Navigation -->
-  <nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-      <a href="index.html" class="flex items-center space-x-3">
-        <img src="Logo with text.png" alt="Rihla Foundation Logo" class="h-12 w-auto">
-      </a>
-      <div class="hidden md:block">
-        <div class="ml-10 flex items-baseline space-x-8">
-          <a href="index.html" class="text-gray-600 hover:text-gold px-3 py-2 text-sm font-medium">Home</a>
-          <a href="about.html" class="text-gray-600 hover:text-gold px-3 py-2 text-sm font-medium">About</a>
-          <a href="donation.html" class="text-black font-semibold px-3 py-2 text-sm">Donations</a>
-          <a href="contact.html" class="text-gray-600 hover:text-gold px-3 py-2 text-sm font-medium">Contact</a>
-          <a href="share.html" class="text-gray-600 hover:text-gold px-3 py-2 text-sm font-medium">Share</a>
+  <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-100 dark:border-gray-700 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <img src="logo.png" alt="Rihla Foundation Logo" class="h-10 w-auto">
+          <span class="text-xl font-bold text-black dark:text-white">The Rihla Foundation</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Home</a>
+          <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">About</a>
+          <a href="donation.html" class="text-black dark:text-white font-semibold text-sm">Donations</a>
+          <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Contact</a>
+          <a href="share.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Share</a>
+          <button onclick="toggleDarkMode()" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
+          <button onclick="toggleLanguage()" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">ع</button>
+        </div>
+        <div class="md:hidden">
+          <button onclick="toggleMenu()" class="text-gray-600 dark:text-gray-300 hover:text-gold">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 px-4 pb-4">
+      <a href="index.html" class="block py-2">Home</a>
+      <a href="about.html" class="block py-2">About</a>
+      <a href="donation.html" class="block py-2">Donations</a>
+      <a href="contact.html" class="block py-2">Contact</a>
+      <a href="share.html" class="block py-2">Share</a>
+    </div>
   </nav>
 
-  <!-- Donations Hero -->
-  <section class="py-20 bg-gradient-to-br from-gray-50 to-white text-center">
+  <!-- Hero -->
+  <section class="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 text-center">
     <h1 class="text-5xl md:text-6xl font-bold mb-6">Donations & Transparency</h1>
-    <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
       We believe in full transparency. Here’s exactly where your support is going and how we’re progressing toward our goals.
     </p>
   </section>
 
   <!-- Stats -->
-  <section class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
-      <div class="bg-gray-50 p-6 rounded-xl shadow">
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center px-6">
+      <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow">
         <h2 class="text-4xl font-bold text-gold mb-2">$2,054</h2>
-        <p class="text-gray-600">Raised so far</p>
+        <p class="text-gray-600 dark:text-gray-300">Raised so far</p>
       </div>
-      <div class="bg-gray-50 p-6 rounded-xl shadow">
+      <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow">
         <h2 class="text-4xl font-bold text-gold mb-2">$30,000</h2>
-        <p class="text-gray-600">Our Goal</p>
+        <p class="text-gray-600 dark:text-gray-300">Our Goal</p>
       </div>
-      <div class="bg-gray-50 p-6 rounded-xl shadow">
+      <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow">
         <h2 class="text-4xl font-bold text-gold mb-2">2026</h2>
-        <p class="text-gray-600">Target Hajj Year</p>
+        <p class="text-gray-600 dark:text-gray-300">Target Hajj Year</p>
       </div>
     </div>
   </section>
 
-  <!-- Donors List -->
-  <section class="py-20 bg-gray-50">
+  <!-- Donors -->
+  <section class="py-20 bg-gray-50 dark:bg-gray-800">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-8">Recent Donors</h2>
-      <ul class="space-y-4 text-lg text-gray-700">
+      <ul class="space-y-4 text-lg text-gray-700 dark:text-gray-300">
         <li>Anonymous – $100</li>
         <li>Anonymous – $200</li>
         <li>Anonymous – $500</li>
@@ -82,22 +101,25 @@
     </div>
   </section>
 
-  <!-- Where Funds Go -->
-  <section class="py-20 bg-white">
+  <!-- Allocation -->
+  <section class="py-20 bg-white dark:bg-gray-900">
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-8">Where Your Donations Go</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-6 bg-gray-50 shadow rounded-xl">
+        <div class="p-6 bg-gray-50 dark:bg-gray-800 shadow rounded-xl">
+          <span class="block text-3xl mb-2">✈️</span>
           <h3 class="text-xl font-semibold mb-3">Flights</h3>
-          <p class="text-gray-600">Covers round-trip airfare to Saudi Arabia.</p>
+          <p class="text-gray-600 dark:text-gray-300">Covers round-trip airfare to Saudi Arabia.</p>
         </div>
-        <div class="p-6 bg-gray-50 shadow rounded-xl">
+        <div class="p-6 bg-gray-50 dark:bg-gray-800 shadow rounded-xl">
+          <span class="block text-3xl mb-2">🏨</span>
           <h3 class="text-xl font-semibold mb-3">Accommodation</h3>
-          <p class="text-gray-600">Hotels and group housing during Hajj.</p>
+          <p class="text-gray-600 dark:text-gray-300">Hotels and group housing during Hajj.</p>
         </div>
-        <div class="p-6 bg-gray-50 shadow rounded-xl">
+        <div class="p-6 bg-gray-50 dark:bg-gray-800 shadow rounded-xl">
+          <span class="block text-3xl mb-2">🍽️</span>
           <h3 class="text-xl font-semibold mb-3">Meals & Logistics</h3>
-          <p class="text-gray-600">Daily meals, transportation, and other essentials.</p>
+          <p class="text-gray-600 dark:text-gray-300">Daily meals, transportation, and other essentials.</p>
         </div>
       </div>
     </div>
@@ -117,14 +139,17 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white border-t border-gray-200 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <img src="Logo with text.png" alt="Rihla Foundation Logo" class="h-12 mx-auto mb-3">
-        <p class="text-gray-600 mb-4">Making Hajj accessible for all</p>
-      </div>
+  <footer class="bg-gray-100 dark:bg-gray-900 py-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <img src="logo.png" alt="Rihla Foundation Logo" class="h-10 mx-auto mb-2">
+      <p class="text-gray-600 dark:text-gray-400">© 2025 The Rihla Foundation — Making Hajj Accessible</p>
     </div>
   </footer>
 
+  <script>
+    function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
+    function toggleDarkMode(){ document.documentElement.classList.toggle('dark'); }
+    function toggleLanguage(){ document.body.dir = (document.body.dir==="rtl"?"ltr":"rtl"); }
+  </script>
 </body>
 </html>
