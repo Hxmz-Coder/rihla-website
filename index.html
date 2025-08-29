@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rihla Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        'dark-gold': '#B8860B'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-black">The Rihla Foundation</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-black hover:text-gold px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="about.html" class="text-gray-600 hover:text-gold px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="donation.html" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">Donate</a>
+                        <a href="contact.html" class="text-gray-600 hover:text-gold px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        <a href="share.html" class="text-gray-600 hover:text-gold px-3 py-2 text-sm font-medium transition-colors">Share</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-600 hover:text-gold focus:outline-none focus:text-gold">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold text-black mb-6 leading-tight">
+                    Making Hajj
+                    <span class="text-gold">Accessible</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    The Rihla Foundation sponsors underprivileged Muslims in the USA to fulfill their sacred journey to Hajj.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="https://gofund.me/786a6643" target="_blank" class="bg-gold hover:bg-dark-gold text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Donate Now
+                    </a>
+                    <a href="about.html" class="border-2 border-gold text-gold hover:bg-gold hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kaaba Background Element -->
+        <div class="absolute bottom-10 right-10 opacity-5">
+            <div class="w-32 h-32 md:w-48 md:h-48 bg-gold rounded-lg transform rotate-12"></div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-6">Our Mission</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    We believe that financial constraints should never prevent a Muslim from fulfilling the fifth pillar of Islam. 
+                    Through community support and donations, we make the sacred journey of Hajj accessible to those who need it most.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl font-bold">$</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Financial Support</h3>
+                    <p class="text-gray-600">We provide full sponsorship for Hajj expenses including travel, accommodation, and meals.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl font-bold"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Community Partnership</h3>
+                    <p class="text-gray-600">We work with local communities and mosques to identify those in need of support.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl font-bold"></span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Sacred Journey</h3>
+                    <p class="text-gray-600">Helping Muslims fulfill their religious obligation and spiritual calling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="text-4xl font-bold text-gold mb-2">$30,000</div>
+                    <div class="text-gray-600">Fundraising Goal</div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="text-4xl font-bold text-gold mb-2">0</div>
+                    <div class="text-gray-600">People Sponsored</div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="text-4xl font-bold text-gold mb-2">2026</div>
+                    <div class="text-gray-600">Hajj Season</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-black text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Join Our Mission</h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Every donation brings us closer to helping another Muslim fulfill their sacred duty.
+            </p>
+            <a href="https://gofund.me/786a6643" target="_blank" class="bg-gold hover:bg-dark-gold text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg inline-block">
+                Make a Difference Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-xl font-bold text-black mb-2">The Rihla Foundation</h3>
+                <p class="text-gray-600 mb-4">Making Hajj accessible for all</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="contact.html" class="text-gray-600 hover:text-gold transition-colors">Contact</a>
+                    <a href="share.html" class="text-gray-600 hover:text-gold transition-colors">Share</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

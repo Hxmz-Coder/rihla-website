@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – The Rihla Foundation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#D4AF37',
+            'dark-gold': '#B8860B'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-black">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <h1 class="text-2xl font-bold text-black">The Rihla Foundation</h1>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="index.html" class="text-gray-600 hover:text-gold px-3 py-2 text-sm font-medium transition-colors">Home</a>
+            <a href="about.html" class="text-gray-600 hover:text-gold px-3 py-2 text-sm font-medium transition-colors">About</a>
+            <a href="https://gofund.me/786a6643" target="_blank" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">Donate</a>
+            <a href="contact.html" class="text-black font-semibold px-3 py-2 text-sm">Contact</a>
+            <a href="share.html" class="text-gray-600 hover:text-gold px-3 py-2 text-sm font-medium transition-colors">Share</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Hero -->
+  <section class="relative py-20 bg-gradient-to-br from-gray-50 to-white text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
+      <p class="text-xl text-gray-600 leading-relaxed">
+        Have questions or want to get involved? We’d love to hear from you.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold mb-4">Email</h2>
+      <p class="text-lg text-gray-700 mb-8">
+        You can reach us anytime at <a href="mailto:TheRihlaFoundation@gmail.com" class="text-gold hover:underline">TheRihlaFoundation@gmail.com</a>
+      </p>
+
+      <!-- Contact Form -->
+      <form action="#" method="POST" class="bg-gray-50 p-8 rounded-xl shadow-md text-left max-w-xl mx-auto">
+        <div class="mb-4">
+          <label class="block text-gray-700 font-medium mb-2" for="name">Name</label>
+          <input type="text" id="name" name="name" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-gold focus:ring-gold" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-medium mb-2" for="email">Email</label>
+          <input type="email" id="email" name="email" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-gold focus:ring-gold" required>
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 font-medium mb-2" for="message">Message</label>
+          <textarea id="message" name="message" rows="5" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-gold focus:ring-gold" required></textarea>
+        </div>
+        <button type="submit" class="bg-gold hover:bg-dark-gold text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300">Send Message</button>
+      </form>
+      <p class="text-sm text-gray-500 mt-4">* Form is a placeholder – please email us directly.</p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-black text-white">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Support Our Mission</h2>
+      <p class="text-xl text-gray-300 mb-8">
+        Every message, every share, and every donation helps us get closer to sponsoring another pilgrim’s journey.
+      </p>
+      <a href="https://gofund.me/786a6643" target="_blank" class="bg-gold hover:bg-dark-gold text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg inline-block">
+        Donate Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h3 class="text-xl font-bold text-black mb-2">The Rihla Foundation</h3>
+        <p class="text-gray-600 mb-4">Making Hajj accessible for all</p>
+        <div class="flex justify-center space-x-6">
+          <a href="contact.html" class="text-gray-600 hover:text-gold transition-colors">Contact</a>
+          <a href="share.html" class="text-gray-600 hover:text-gold transition-colors">Share</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
