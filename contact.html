@@ -41,7 +41,6 @@
           <a href="contact.html" class="text-black dark:text-white font-semibold text-sm">Contact</a>
           <a href="share.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Share</a>
           <button onclick="toggleDarkMode()" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
-          <button onclick="toggleLanguage()" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">ع</button>
         </div>
         <div class="md:hidden">
           <button onclick="toggleMenu()" class="text-gray-600 dark:text-gray-300 hover:text-gold">
@@ -121,7 +120,6 @@
   <script>
     function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
     function toggleDarkMode(){ document.documentElement.classList.toggle('dark'); }
-    function toggleLanguage(){ document.body.dir = (document.body.dir==="rtl"?"ltr":"rtl"); }
   </script>
 </body>
 </html>
