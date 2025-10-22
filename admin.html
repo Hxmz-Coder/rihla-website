@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rihla Foundation - Admin Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: '#D4AF37',
+            'dark-gold': '#B8860B'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    
+    /* Animation classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .fade-in-delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .fade-in-delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      animation: scaleIn 0.6s ease-out forwards;
+    }
+    
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes scaleIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-black dark:text-white transition-colors duration-300">
+  <!-- Login Form -->
+  <div id="loginForm" class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-md w-full space-y-8 p-8">
+      <div class="text-center">
+        <img src="logo.png" alt="Rihla Foundation Logo" class="h-16 mx-auto mb-6 scale-in">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white fade-in">Admin Login</h2>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 fade-in fade-in-delay-1">Enter admin credentials to access email list</p>
+      </div>
+      <form id="loginFormElement" class="mt-8 space-y-6">
+        <div>
+          <label for="adminPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
+          <input id="adminPassword" type="password" required class="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-gold focus:border-gold focus:z-10 sm:text-sm dark:bg-gray-700" placeholder="Enter admin password">
+        </div>
+        <div>
+          <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gold hover:bg-dark-gold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-colors">
+            Sign In
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="adminDashboard" class="hidden">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-3">
+            <img src="logo.png" alt="Rihla Foundation Logo" class="h-10 w-auto">
+            <span class="text-xl font-bold text-gray-900 dark:text-white">Admin Panel</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button id="darkModeToggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+              🌙
+            </button>
+            <button id="logoutBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div class="px-4 py-6 sm:px-0">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg hover-lift scale-in">
+            <div class="p-5">
+              <div class="flex items-center">
+                <div class="flex-shrink-0">
+                  <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
+                    <span class="text-white text-sm font-bold">📧</span>
+                  </div>
+                </div>
+                <div class="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Total Subscribers</dt>
+                    <dd class="text-lg font-medium text-gray-900 dark:text-white" id="totalSubscribers">0</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg hover-lift scale-in fade-in-delay-1">
+            <div class="p-5">
+              <div class="flex items-center">
+                <div class="flex-shrink-0">
+                  <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                    <span class="text-white text-sm font-bold">📈</span>
+                  </div>
+                </div>
+                <div class="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">This Week</dt>
+                    <dd class="text-lg font-medium text-gray-900 dark:text-white" id="weeklySubscribers">0</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg hover-lift scale-in fade-in-delay-2">
+            <div class="p-5">
+              <div class="flex items-center">
+                <div class="flex-shrink-0">
+                  <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                    <span class="text-white text-sm font-bold">📅</span>
+                  </div>
+                </div>
+                <div class="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Last Updated</dt>
+                    <dd class="text-lg font-medium text-gray-900 dark:text-white" id="lastUpdated">Never</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Messages -->
+        <div class="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-md mb-8">
+          <div class="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-700">
+            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">Contact Messages</h3>
+            <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-400">Messages from the contact form</p>
+          </div>
+          
+          <div class="px-4 py-5 sm:px-6">
+            <div class="flex justify-between items-center mb-4">
+              <div class="flex space-x-2">
+                <button id="exportMessagesBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                  Export Messages
+                </button>
+                <button id="refreshMessagesBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                  Refresh
+                </button>
+              </div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">
+                <span id="messageCount">0</span> messages
+              </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Name</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Email</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Message</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="messagesTableBody" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  <!-- Message rows will be populated here -->
+                </tbody>
+              </table>
+            </div>
+            
+            <div id="noMessagesMessage" class="text-center py-8 text-gray-500 dark:text-gray-400 hidden">
+              <p>No contact messages yet.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email List -->
+        <div class="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-700">
+            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">Email Subscribers</h3>
+            <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-400">Manage your newsletter subscribers</p>
+          </div>
+          
+          <div class="px-4 py-5 sm:px-6">
+            <div class="flex justify-between items-center mb-4">
+              <div class="flex space-x-2">
+                <button id="exportBtn" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                  Export CSV
+                </button>
+                <button id="refreshBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                  Refresh
+                </button>
+              </div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">
+                <span id="emailCount">0</span> subscribers
+              </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Email</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date Subscribed</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="emailTableBody" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  <!-- Email rows will be populated here -->
+                </tbody>
+              </table>
+            </div>
+            
+            <div id="noEmailsMessage" class="text-center py-8 text-gray-500 dark:text-gray-400 hidden">
+              <p>No subscribers yet. Share your website to start collecting emails!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple admin authentication
+    const ADMIN_PASSWORD = 'TarekInLebanon'; // Change this to your desired password
+    
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+    });
+    
+    // Login functionality
+    document.getElementById('loginFormElement').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = document.getElementById('adminPassword').value;
+      
+      if (password === ADMIN_PASSWORD) {
+        document.getElementById('loginForm').classList.add('hidden');
+        document.getElementById('adminDashboard').classList.remove('hidden');
+        loadEmails();
+        loadMessages();
+      } else {
+        alert('Invalid password. Please try again.');
+        document.getElementById('adminPassword').value = '';
+      }
+    });
+    
+    // Logout functionality
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      document.getElementById('loginForm').classList.remove('hidden');
+      document.getElementById('adminDashboard').classList.add('hidden');
+      document.getElementById('adminPassword').value = '';
+    });
+    
+    // Load contact messages from localStorage
+    function loadMessages() {
+      const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+      const tableBody = document.getElementById('messagesTableBody');
+      const noMessagesMessage = document.getElementById('noMessagesMessage');
+      
+      // Update message count
+      document.getElementById('messageCount').textContent = messages.length;
+      
+      if (messages.length === 0) {
+        tableBody.innerHTML = '';
+        noMessagesMessage.classList.remove('hidden');
+        return;
+      }
+      
+      noMessagesMessage.classList.add('hidden');
+      
+      // Sort messages by date (newest first)
+      messages.sort((a, b) => new Date(b.date) - new Date(a.date));
+      
+      tableBody.innerHTML = messages.map(message => `
+        <tr>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+            ${message.name}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+            ${message.email}
+          </td>
+          <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 max-w-xs">
+            <div class="truncate" title="${message.message}">${message.message}</div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+            ${new Date(message.date).toLocaleDateString()} ${new Date(message.date).toLocaleTimeString()}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <button onclick="viewMessage('${message.id}')" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300 mr-3">
+              View
+            </button>
+            <button onclick="removeMessage('${message.id}')" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300">
+              Remove
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+    
+    // Load emails from localStorage
+    function loadEmails() {
+      const emails = JSON.parse(localStorage.getItem('newsletterEmails') || '[]');
+      const tableBody = document.getElementById('emailTableBody');
+      const noEmailsMessage = document.getElementById('noEmailsMessage');
+      
+      // Update stats
+      document.getElementById('totalSubscribers').textContent = emails.length;
+      document.getElementById('emailCount').textContent = emails.length;
+      
+      // Calculate weekly subscribers
+      const oneWeekAgo = new Date();
+      oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+      const weeklyCount = emails.filter(email => new Date(email.date) > oneWeekAgo).length;
+      document.getElementById('weeklySubscribers').textContent = weeklyCount;
+      
+      // Update last updated
+      if (emails.length > 0) {
+        const lastEmail = emails[emails.length - 1];
+        document.getElementById('lastUpdated').textContent = new Date(lastEmail.date).toLocaleDateString();
+      }
+      
+      if (emails.length === 0) {
+        tableBody.innerHTML = '';
+        noEmailsMessage.classList.remove('hidden');
+        return;
+      }
+      
+      noEmailsMessage.classList.add('hidden');
+      
+      // Sort emails by date (newest first)
+      emails.sort((a, b) => new Date(b.date) - new Date(a.date));
+      
+      tableBody.innerHTML = emails.map(email => `
+        <tr>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+            ${email.email}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+            ${new Date(email.date).toLocaleDateString()} ${new Date(email.date).toLocaleTimeString()}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <button onclick="removeEmail('${email.email}')" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300">
+              Remove
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+    
+    // Remove message function
+    function removeMessage(messageId) {
+      if (confirm('Are you sure you want to remove this message?')) {
+        const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+        const updatedMessages = messages.filter(message => message.id !== messageId);
+        localStorage.setItem('contactMessages', JSON.stringify(updatedMessages));
+        loadMessages();
+      }
+    }
+    
+    // View message function
+    function viewMessage(messageId) {
+      const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+      const message = messages.find(msg => msg.id === messageId);
+      
+      if (message) {
+        alert(`Name: ${message.name}\nEmail: ${message.email}\nDate: ${new Date(message.date).toLocaleString()}\n\nMessage:\n${message.message}`);
+      }
+    }
+    
+    // Remove email function
+    function removeEmail(emailToRemove) {
+      if (confirm('Are you sure you want to remove this email?')) {
+        const emails = JSON.parse(localStorage.getItem('newsletterEmails') || '[]');
+        const updatedEmails = emails.filter(email => email.email !== emailToRemove);
+        localStorage.setItem('newsletterEmails', JSON.stringify(updatedEmails));
+        loadEmails();
+      }
+    }
+    
+    // Export CSV functionality
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      const emails = JSON.parse(localStorage.getItem('newsletterEmails') || '[]');
+      
+      if (emails.length === 0) {
+        alert('No emails to export.');
+        return;
+      }
+      
+      const csvContent = [
+        ['Email', 'Date Subscribed'],
+        ...emails.map(email => [email.email, new Date(email.date).toLocaleString()])
+      ].map(row => row.join(',')).join('\n');
+      
+      const blob = new Blob([csvContent], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `rihla-subscribers-${new Date().toISOString().split('T')[0]}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    });
+    
+    // Refresh functionality
+    document.getElementById('refreshBtn').addEventListener('click', () => {
+      loadEmails();
+    });
+    
+    // Export messages functionality
+    document.getElementById('exportMessagesBtn').addEventListener('click', () => {
+      const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+      
+      if (messages.length === 0) {
+        alert('No messages to export.');
+        return;
+      }
+      
+      const csvContent = [
+        ['Name', 'Email', 'Message', 'Date'],
+        ...messages.map(message => [message.name, message.email, message.message.replace(/\n/g, ' '), new Date(message.date).toLocaleString()])
+      ].map(row => row.map(field => `"${field}"`).join(',')).join('\n');
+      
+      const blob = new Blob([csvContent], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `rihla-messages-${new Date().toISOString().split('T')[0]}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    });
+    
+    // Refresh messages functionality
+    document.getElementById('refreshMessagesBtn').addEventListener('click', () => {
+      loadMessages();
+    });
+  </script>
+</body>
+</html>

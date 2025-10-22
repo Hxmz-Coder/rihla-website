@@ -22,6 +22,61 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     [dir="rtl"] { direction: rtl; text-align: right; }
+    
+    /* Defined box styling */
+    .defined-box {
+      border: 2px solid #e5e7eb;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .dark .defined-box {
+      border-color: #374151;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Animation classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .fade-in-delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .fade-in-delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      animation: scaleIn 0.6s ease-out forwards;
+    }
+    
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes scaleIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-black dark:bg-gray-900 dark:text-white">
@@ -37,7 +92,7 @@
         <div class="hidden md:flex items-center space-x-6">
           <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Home</a>
           <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">About</a>
-          <a href="donation.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Donations</a>
+          <a href="donation.html" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-full text-sm">Donate</a>
           <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Contact</a>
           <a href="share.html" class="text-black dark:text-white font-semibold text-sm">Share</a>
           <button onclick="toggleDarkMode()" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
@@ -62,8 +117,8 @@
 
   <!-- Hero -->
   <section class="relative py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 text-center">
-    <h1 class="text-5xl md:text-6xl font-bold mb-6">Share Our Mission</h1>
-    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in">Share Our Mission</h1>
+    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto fade-in fade-in-delay-1">
       Help spread the word and support our cause by sharing The Rihla Foundation with your friends and community.
     </p>
   </section>
@@ -71,25 +126,25 @@
   <!-- Share Options -->
   <section class="py-20 bg-white dark:bg-gray-900">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-2xl font-bold mb-8">Ways to Share</h2>
+      <h2 class="text-2xl font-bold mb-8 fade-in">Ways to Share</h2>
       <div class="grid md:grid-cols-3 gap-8">
 
         <!-- Instagram -->
-        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md">
+        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md defined-box hover-lift scale-in">
           <h3 class="text-xl font-semibold mb-3">Instagram</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">Follow us and share our posts with your community.</p>
           <a href="https://www.instagram.com/the.rihla.foundation" target="_blank" class="bg-gold hover:bg-dark-gold text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block">Follow Us</a>
         </div>
 
         <!-- Copy Link -->
-        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md">
+        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md defined-box hover-lift scale-in fade-in-delay-1">
           <h3 class="text-xl font-semibold mb-3">Copy Link</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">Share our website directly with friends and family.</p>
           <button onclick="copyLink()" class="bg-gold hover:bg-dark-gold text-white px-6 py-3 rounded-lg font-semibold transition-colors">Copy Link</button>
         </div>
 
         <!-- Email -->
-        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md">
+        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md defined-box hover-lift scale-in fade-in-delay-2">
           <h3 class="text-xl font-semibold mb-3">Email</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">Tell someone about our mission via email.</p>
           <a href="mailto:?subject=Support The Rihla Foundation&body=Check out The Rihla Foundation: https://rihlafoundation.com" class="bg-gold hover:bg-dark-gold text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block">Share by Email</a>

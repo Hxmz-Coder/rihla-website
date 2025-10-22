@@ -22,6 +22,61 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     [dir="rtl"] { direction: rtl; text-align: right; }
+    
+    /* Defined box styling */
+    .defined-box {
+      border: 2px solid #e5e7eb;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .dark .defined-box {
+      border-color: #374151;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Animation classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .fade-in-delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .fade-in-delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      animation: scaleIn 0.6s ease-out forwards;
+    }
+    
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes scaleIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-black dark:bg-gray-900 dark:text-white">
@@ -62,26 +117,26 @@
 
   <!-- Hero -->
   <section class="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 text-center">
-    <h1 class="text-5xl md:text-6xl font-bold mb-6">Donations & Transparency</h1>
-    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-      We believe in full transparency. Here’s exactly where your support is going and how we’re progressing toward our goals.
+    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in">Donations & Transparency</h1>
+    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed fade-in fade-in-delay-1">
+      We believe in full transparency. Here's exactly where your support is going and how we're progressing toward our goals.
     </p>
   </section>
 
   <!-- Stats -->
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center px-6">
-      <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow">
-        <h2 class="text-4xl font-bold text-gold mb-2">$2,054</h2>
+      <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow defined-box hover-lift scale-in">
+        <h2 class="text-4xl font-bold text-gold mb-2">$2,854</h2>
         <p class="text-gray-600 dark:text-gray-300">Raised so far</p>
       </div>
-      <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow">
-        <h2 class="text-4xl font-bold text-gold mb-2">$30,000</h2>
+      <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow defined-box hover-lift scale-in fade-in-delay-1">
+        <h2 class="text-4xl font-bold text-gold mb-2">$16,000</h2>
         <p class="text-gray-600 dark:text-gray-300">Our Goal</p>
       </div>
-      <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow">
-        <h2 class="text-4xl font-bold text-gold mb-2">2026</h2>
-        <p class="text-gray-600 dark:text-gray-300">Target Hajj Year</p>
+      <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow defined-box hover-lift scale-in fade-in-delay-2">
+        <h2 class="text-4xl font-bold text-gold mb-2">2025 November</h2>
+        <p class="text-gray-600 dark:text-gray-300">Umrah Trip</p>
       </div>
     </div>
   </section>
@@ -89,14 +144,14 @@
   <!-- Donors -->
   <section class="py-20 bg-gray-50 dark:bg-gray-800">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-8">Recent Donors</h2>
-      <ul class="space-y-4 text-lg text-gray-700 dark:text-gray-300">
+      <h2 class="text-3xl font-bold mb-8 fade-in">Recent Donors</h2>
+      <ul class="space-y-4 text-lg text-gray-700 dark:text-gray-300 fade-in fade-in-delay-1">
         <li>Anonymous – $100</li>
         <li>Anonymous – $200</li>
         <li>Anonymous – $500</li>
         <li>Anonymous – $700</li>
       </ul>
-      <p class="text-sm text-gray-500 mt-4">*Donors’ names kept private unless they choose to be acknowledged.</p>
+      <p class="text-sm text-gray-500 mt-4 fade-in fade-in-delay-2">*Donors' names kept private unless they choose to be acknowledged.</p>
     </div>
   </section>
 
