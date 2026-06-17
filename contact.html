@@ -19,65 +19,7 @@
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    [dir="rtl"] { direction: rtl; text-align: right; }
-    
-    /* Defined box styling */
-    .defined-box {
-      border: 2px solid #e5e7eb;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-    
-    .dark .defined-box {
-      border-color: #374151;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* Animation classes */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-    
-    .fade-in-delay-1 {
-      animation-delay: 0.2s;
-    }
-    
-    .fade-in-delay-2 {
-      animation-delay: 0.4s;
-    }
-    
-    .scale-in {
-      opacity: 0;
-      transform: scale(0.8);
-      animation: scaleIn 0.6s ease-out forwards;
-    }
-    
-    .hover-lift {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .hover-lift:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes scaleIn {
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-  </style>
+  <link href="css/animations.css" rel="stylesheet">
 </head>
 <body class="bg-white text-black dark:bg-gray-900 dark:text-white">
 
@@ -92,7 +34,7 @@
         <div class="hidden md:flex items-center space-x-6">
           <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Home</a>
           <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">About</a>
-          <a href="donation.html" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-full text-sm">Donate</a>
+          <a href="donation.html#ways-to-give" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-full text-sm">Donate</a>
           <a href="contact.html" class="text-black dark:text-white font-semibold text-sm">Contact</a>
           <a href="share.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Share</a>
           <button onclick="toggleDarkMode()" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
@@ -180,7 +122,7 @@
       <p class="text-xl text-gray-300 mb-8">
         Every message, every share, and every donation helps us get closer to sponsoring another pilgrim’s journey.
       </p>
-      <a href="https://gofund.me/786a6643" target="_blank" class="bg-gold hover:bg-dark-gold text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg inline-block">
+      <a href="donation.html#ways-to-give" class="bg-gold hover:bg-dark-gold text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg inline-block">
         Donate Now
       </a>
     </div>

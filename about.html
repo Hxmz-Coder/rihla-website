@@ -19,95 +19,7 @@
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    [dir="rtl"] { direction: rtl; text-align: right; }
-    
-    /* Defined box styling */
-    .defined-box {
-      border: 2px solid #e5e7eb;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-    
-    .dark .defined-box {
-      border-color: #374151;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* Animation classes */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-    
-    .fade-in-delay-1 {
-      animation-delay: 0.2s;
-    }
-    
-    .fade-in-delay-2 {
-      animation-delay: 0.4s;
-    }
-    
-    .fade-in-delay-3 {
-      animation-delay: 0.6s;
-    }
-    
-    .slide-in-left {
-      opacity: 0;
-      transform: translateX(-50px);
-      animation: slideInLeft 0.8s ease-out forwards;
-    }
-    
-    .slide-in-right {
-      opacity: 0;
-      transform: translateX(50px);
-      animation: slideInRight 0.8s ease-out forwards;
-    }
-    
-    .scale-in {
-      opacity: 0;
-      transform: scale(0.8);
-      animation: scaleIn 0.6s ease-out forwards;
-    }
-    
-    .hover-lift {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .hover-lift:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes slideInLeft {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    
-    @keyframes slideInRight {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    
-    @keyframes scaleIn {
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-  </style>
+  <link href="css/animations.css" rel="stylesheet">
 </head>
 <body class="bg-white text-black dark:bg-gray-900 dark:text-white">
 
@@ -122,7 +34,7 @@
         <div class="hidden md:flex items-center space-x-6">
           <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Home</a>
           <a href="about.html" class="text-black dark:text-white font-semibold text-sm">About</a>
-          <a href="donation.html" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-full text-sm">Donate</a>
+          <a href="donation.html#ways-to-give" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-full text-sm">Donate</a>
           <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Contact</a>
           <a href="share.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Share</a>
           <button onclick="toggleDarkMode()" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
@@ -139,35 +51,41 @@
     <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 px-4 pb-4">
       <a href="index.html" class="block py-2">Home</a>
       <a href="about.html" class="block py-2">About</a>
-      <a href="donation.html" class="block py-2">Donate</a>
+      <a href="donation.html#ways-to-give" class="block py-2">Donate</a>
       <a href="contact.html" class="block py-2">Contact</a>
       <a href="share.html" class="block py-2">Share</a>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 text-center">
-    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in">About Us</h1>
-    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto fade-in fade-in-delay-1">
-      The Rihla Foundation is dedicated to making the sacred journey of Hajj accessible to Muslims who face financial hardship.
-    </p>
+  <section class="relative py-24 hero-shimmer text-center overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-gold rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-40 h-40 bg-gold rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    </div>
+    <div class="relative z-10 px-6">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in">About <span class="text-gold">Us</span></h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto fade-in fade-in-delay-1">
+        The Rihla Foundation is dedicated to making the sacred journey of Hajj accessible to Muslims who face financial hardship.
+      </p>
+    </div>
   </section>
 
   <!-- Story -->
   <section class="py-20">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6">
-      <div class="slide-in-left">
-        <h2 class="text-3xl font-bold mb-4 fade-in">Our Story</h2>
-        <p class="text-gray-600 dark:text-gray-300 mb-4 fade-in fade-in-delay-1">
+      <div class="reveal-left">
+        <h2 class="text-3xl font-bold mb-4">Our Story</h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
           Founded with the belief that no Muslim should be prevented from fulfilling the fifth pillar of Islam due to financial constraints,
           The Rihla Foundation was established to provide full sponsorships for Hajj.
         </p>
-        <p class="text-gray-600 dark:text-gray-300 fade-in fade-in-delay-2">
+        <p class="text-gray-600 dark:text-gray-300">
           By working with local mosques and community leaders, we identify individuals and families most in need,
           ensuring that our support reaches those who would otherwise never have the chance to embark on this sacred journey.
         </p>
       </div>
-      <div class="rounded-lg overflow-hidden shadow-lg defined-box slide-in-right">
+      <div class="rounded-lg overflow-hidden shadow-lg defined-box reveal-right hover-lift">
         <img src="kabaah.jpg" alt="Kaaba" class="w-full h-full object-cover">
       </div>
     </div>
@@ -176,25 +94,25 @@
   <!-- Founders -->
   <section class="py-20 bg-gray-50 dark:bg-gray-800">
     <div class="max-w-6xl mx-auto text-center px-6">
-      <h2 class="text-3xl font-bold mb-6 fade-in">Our Founders</h2>
-      <p class="text-lg text-gray-600 dark:text-gray-300 mb-12 fade-in fade-in-delay-1">
+      <h2 class="text-3xl font-bold mb-6 reveal">Our Founders</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-12 reveal stagger-1">
         We are a group of high school students from Seattle, Washington, with one vision: making the sacred journey of Hajj and Umrah possible for underprivileged Muslims.
       </p>
-      <img src="founders.JPG" alt="Founders" class="rounded-2xl shadow-lg mx-auto mb-12 max-w-2xl defined-box scale-in">
+      <img src="founders.JPG" alt="Founders" class="rounded-2xl shadow-lg mx-auto mb-12 max-w-2xl defined-box reveal-scale hover-lift">
       <div class="grid md:grid-cols-4 gap-8">
-        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 defined-box hover-lift scale-in">
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 defined-box hover-lift reveal-scale stagger-1">
           <h3 class="text-xl font-semibold">Nawfal Baqai</h3>
           <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Finance Lead — Handles accounts, donations, and sponsorships.</p>
         </div>
-        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 defined-box hover-lift scale-in fade-in-delay-1">
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 defined-box hover-lift reveal-scale stagger-2">
           <h3 class="text-xl font-semibold">Tarek Alsoufi</h3>
           <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Outreach Lead — Builds community connections and handles fundraisers.</p>
         </div>
-        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 defined-box hover-lift scale-in fade-in-delay-2">
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 defined-box hover-lift reveal-scale stagger-3">
           <h3 class="text-xl font-semibold">Humza Ahmed</h3>
           <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Media Lead — Runs social media, website, and branding.</p>
         </div>
-        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 defined-box hover-lift scale-in fade-in-delay-3">
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 defined-box hover-lift reveal-scale stagger-4">
           <h3 class="text-xl font-semibold">Yousha Khwaja</h3>
           <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Operations Lead — Handles legal and  technical logistics.</p>
         </div>
@@ -214,5 +132,6 @@
     function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
     function toggleDarkMode(){ document.documentElement.classList.toggle('dark'); }
   </script>
+  <script src="js/animations.js"></script>
 </body>
 </html>
