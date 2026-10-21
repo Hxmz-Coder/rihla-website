@@ -77,10 +77,14 @@
     var percentEl = document.getElementById('progressPercent');
     if (!bar || !raisedEl) return;
 
-    var raised = parseInt(bar.dataset.raised || '2854', 10);
-    var goal = parseInt(bar.dataset.goal || '16000', 10);
+    var raised = parseInt(bar.dataset.raised, 10) || 0;
+    var goal = parseInt(bar.dataset.goal, 10) || 1;
     var pct = Math.round((raised / goal) * 100);
-    bar.style.setProperty('--progress', pct + '%');
+    bar.style.setProperty('--progress', Math.min(pct, 100) + '%');
+
+    function percentText(p) {
+      return p >= 100 ? 'Goal surpassed — ' + p + '% of goal raised!' : p + '% of goal reached';
+    }
 
     var started = false;
     var observer = new IntersectionObserver(function (entries) {
@@ -96,13 +100,13 @@
             var value = Math.floor(eased * raised);
             raisedEl.textContent = '$' + value.toLocaleString();
             if (percentEl) {
-              percentEl.textContent = Math.floor(eased * pct) + '% of goal reached';
+              percentEl.textContent = percentText(Math.floor(eased * pct));
             }
             if (progress < 1) {
               requestAnimationFrame(tickRaised);
             } else {
               raisedEl.textContent = '$' + raised.toLocaleString();
-              if (percentEl) percentEl.textContent = pct + '% of goal reached';
+              if (percentEl) percentEl.textContent = percentText(pct);
             }
           }
           requestAnimationFrame(tickRaised);

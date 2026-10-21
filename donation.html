@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donations – The Rihla Foundation</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <script src="js/site.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -19,179 +21,7 @@
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    [dir="rtl"] { direction: rtl; text-align: right; }
-    
-    /* Defined box styling */
-    .defined-box {
-      border: 2px solid #e5e7eb;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-    
-    .dark .defined-box {
-      border-color: #374151;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* Page load animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-    
-    .fade-in-delay-1 { animation-delay: 0.2s; }
-    .fade-in-delay-2 { animation-delay: 0.4s; }
-    .fade-in-delay-3 { animation-delay: 0.6s; }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .reveal-scale {
-      opacity: 0;
-      transform: scale(0.85);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal-scale.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .stagger-1 { transition-delay: 0.1s; }
-    .stagger-2 { transition-delay: 0.2s; }
-    .stagger-3 { transition-delay: 0.3s; }
-    .stagger-4 { transition-delay: 0.4s; }
-    .stagger-5 { transition-delay: 0.5s; }
-    
-    .scale-in {
-      opacity: 0;
-      transform: scale(0.8);
-      animation: scaleIn 0.6s ease-out forwards;
-    }
-    
-    .hover-lift {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .hover-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.15);
-    }
-
-  .dark .hover-lift:hover {
-    box-shadow: 0 14px 30px rgba(0,0,0,0.4);
-  }
-
-    .btn-glow {
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    }
-    .btn-glow:hover {
-      transform: scale(1.03);
-    }
-
-    .pulse-gold {
-      animation: pulseGold 2s infinite;
-    }
-
-    .icon-float {
-      display: inline-block;
-      animation: iconFloat 3s ease-in-out infinite;
-    }
-
-    .hero-shimmer {
-      background: linear-gradient(135deg, #f9fafb 0%, #fff 40%, #fef9e7 70%, #f3f4f6 100%);
-      background-size: 200% 200%;
-      animation: shimmer 8s ease infinite;
-    }
-    .dark .hero-shimmer {
-      background: linear-gradient(135deg, #111827 0%, #1f2937 40%, #292419 70%, #111827 100%);
-      background-size: 200% 200%;
-    }
-
-    .progress-track {
-      height: 12px;
-      border-radius: 9999px;
-      overflow: hidden;
-      background: #e5e7eb;
-    }
-    .dark .progress-track { background: #374151; }
-
-    .progress-fill {
-      height: 100%;
-      width: 0;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, #B8860B, #D4AF37, #F0D878);
-      background-size: 200% 100%;
-      animation: progressShine 2s linear infinite;
-      transition: width 1.8s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .progress-fill.animated { width: var(--progress); }
-
-    .donor-item {
-      opacity: 0;
-      transform: translateX(-20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .donor-item.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes scaleIn {
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes pulseGold {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-      50% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
-    }
-
-    @keyframes iconFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    @keyframes shimmer {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    @keyframes progressShine {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-  </style>
+  <link href="css/animations.css" rel="stylesheet">
 </head>
 <body class="bg-white text-black dark:bg-gray-900 dark:text-white">
 
@@ -201,18 +31,19 @@
       <div class="flex justify-between items-center h-16">
         <a href="index.html" class="flex items-center space-x-3">
           <img src="logo.png" alt="Rihla Foundation Logo" class="h-10 w-auto">
-          <span class="text-xl font-bold text-black dark:text-white">The Rihla Foundation</span>
+          <span class="text-lg sm:text-xl font-bold text-black dark:text-white">The Rihla Foundation</span>
         </a>
         <div class="hidden md:flex items-center space-x-6">
           <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Home</a>
           <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">About</a>
-          <a href="donation.html" class="text-black dark:text-white font-semibold text-sm">Donations</a>
+          <a href="donation.html#ways-to-give" aria-current="page" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-full text-sm ring-2 ring-offset-2 ring-gold dark:ring-offset-gray-800">Donate</a>
           <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Contact</a>
           <a href="share.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Share</a>
-          <button onclick="toggleDarkMode()" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
+          <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
         </div>
-        <div class="md:hidden">
-          <button onclick="toggleMenu()" class="text-gray-600 dark:text-gray-300 hover:text-gold">
+        <div class="md:hidden flex items-center space-x-2">
+          <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
+          <button onclick="toggleMenu()" aria-label="Open menu" class="text-gray-600 dark:text-gray-300 hover:text-gold">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
@@ -223,7 +54,7 @@
     <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 px-4 pb-4">
       <a href="index.html" class="block py-2">Home</a>
       <a href="about.html" class="block py-2">About</a>
-      <a href="donation.html" class="block py-2">Donations</a>
+      <a href="donation.html#ways-to-give" aria-current="page" class="block py-2 font-semibold text-gold">Donate</a>
       <a href="contact.html" class="block py-2">Contact</a>
       <a href="share.html" class="block py-2">Share</a>
     </div>
@@ -321,7 +152,7 @@
         <span><span class="font-bold text-gold">$16,000</span> goal</span>
       </div>
       <div class="progress-track">
-        <div id="progressBar" class="progress-fill" style="--progress: 17.8%;"></div>
+        <div id="progressBar" class="progress-fill" data-raised="25662" data-goal="16000"></div>
       </div>
       <p class="text-sm text-gray-500 dark:text-gray-400 mt-2" id="progressPercent">0% of goal reached</p>
     </div>
@@ -331,16 +162,16 @@
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center px-6">
       <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow defined-box hover-lift reveal-scale stagger-1">
-        <h2 class="text-4xl font-bold text-gold mb-2 counter" data-target="2854" data-prefix="$" data-suffix="">$0</h2>
-        <p class="text-gray-600 dark:text-gray-300">Raised so far</p>
+        <h2 class="text-4xl font-bold text-gold mb-2 counter" data-target="25662" data-prefix="$">$0</h2>
+        <p class="text-gray-600 dark:text-gray-300">Raised this year</p>
       </div>
       <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow defined-box hover-lift reveal-scale stagger-2">
-        <h2 class="text-4xl font-bold text-gold mb-2 counter" data-target="16000" data-prefix="$" data-suffix="">$0</h2>
-        <p class="text-gray-600 dark:text-gray-300">Our Goal</p>
+        <h2 class="text-4xl font-bold text-gold mb-2 counter" data-target="5">0</h2>
+        <p class="text-gray-600 dark:text-gray-300">Pilgrims sent (1 family)</p>
       </div>
       <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow defined-box hover-lift reveal-scale stagger-3">
-        <h2 class="text-4xl font-bold text-gold mb-2">2025 November</h2>
-        <p class="text-gray-600 dark:text-gray-300">Umrah Trip</p>
+        <h2 class="text-4xl font-bold text-gold mb-2 counter" data-target="7">0</h2>
+        <p class="text-gray-600 dark:text-gray-300">Fundraisers held</p>
       </div>
     </div>
   </section>
@@ -392,7 +223,7 @@
   <!-- CTA -->
   <section class="py-20 bg-black text-white">
     <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6 reveal">Help Us Reach Our Goal</h2>
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 reveal">Help Us Send the Next Family</h2>
       <p class="text-xl text-gray-300 mb-8 reveal stagger-1">
         Every dollar directly supports someone's journey to Hajj. 
       </p>
@@ -406,113 +237,10 @@
   <footer class="bg-gray-100 dark:bg-gray-900 py-6">
     <div class="max-w-6xl mx-auto text-center">
       <img src="logo.png" alt="Rihla Foundation Logo" class="h-10 mx-auto mb-2">
-      <p class="text-gray-600 dark:text-gray-400">© 2025 The Rihla Foundation — Making Hajj Accessible</p>
+      <p class="text-gray-600 dark:text-gray-400">© 2026 The Rihla Foundation — Making Hajj Accessible</p>
     </div>
   </footer>
 
-  <script>
-    function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
-    function toggleDarkMode(){ document.documentElement.classList.toggle('dark'); }
-    function copyText(text, message) {
-      navigator.clipboard.writeText(text).then(function() { alert(message); });
-    }
-
-    // Scroll reveal
-    const revealObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
-      revealObserver.observe(el);
-    });
-
-    // Donor list stagger
-    const donorObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.querySelectorAll('.donor-item').forEach(function(item, i) {
-            setTimeout(function() { item.classList.add('visible'); }, i * 150);
-          });
-          donorObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    var donorList = document.getElementById('donorList');
-    if (donorList) donorObserver.observe(donorList);
-
-    // Counter animation
-    function animateCounter(el) {
-      var target = parseInt(el.dataset.target, 10);
-      var prefix = el.dataset.prefix || '';
-      var duration = 1800;
-      var start = performance.now();
-
-      function tick(now) {
-        var progress = Math.min((now - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        var value = Math.floor(eased * target);
-        el.textContent = prefix + value.toLocaleString();
-        if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = prefix + target.toLocaleString();
-      }
-      requestAnimationFrame(tick);
-    }
-
-    var countersStarted = false;
-    const counterObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !countersStarted) {
-          countersStarted = true;
-          document.querySelectorAll('.counter').forEach(animateCounter);
-          counterObserver.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    var statsSection = document.querySelector('.counter');
-    if (statsSection) counterObserver.observe(statsSection.closest('section'));
-
-    // Progress bar animation
-    var progressStarted = false;
-    const progressObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !progressStarted) {
-          progressStarted = true;
-          var bar = document.getElementById('progressBar');
-          var raised = document.getElementById('raisedAmount');
-          var percent = document.getElementById('progressPercent');
-          var target = 2854;
-          var goal = 16000;
-          var pct = Math.round((target / goal) * 100);
-
-          bar.classList.add('animated');
-          var start = performance.now();
-          function tickRaised(now) {
-            var progress = Math.min((now - start) / 1800, 1);
-            var eased = 1 - Math.pow(1 - progress, 3);
-            var value = Math.floor(eased * target);
-            raised.textContent = '$' + value.toLocaleString();
-            percent.textContent = Math.floor(eased * pct) + '% of goal reached';
-            if (progress < 1) requestAnimationFrame(tickRaised);
-            else {
-              raised.textContent = '$' + target.toLocaleString();
-              percent.textContent = pct + '% of goal reached';
-            }
-          }
-          requestAnimationFrame(tickRaised);
-          progressObserver.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    var progressBar = document.getElementById('progressBar');
-    if (progressBar) progressObserver.observe(progressBar.closest('section'));
-  </script>
+  <script src="js/animations.js"></script>
 </body>
 </html>

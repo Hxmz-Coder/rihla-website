@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Share – The Rihla Foundation</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <script src="js/site.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -87,18 +89,19 @@
       <div class="flex justify-between items-center h-16">
         <a href="index.html" class="flex items-center space-x-3">
           <img src="logo.png" alt="Rihla Foundation Logo" class="h-10 w-auto">
-          <span class="text-xl font-bold text-black dark:text-white">The Rihla Foundation</span>
+          <span class="text-lg sm:text-xl font-bold text-black dark:text-white">The Rihla Foundation</span>
         </a>
         <div class="hidden md:flex items-center space-x-6">
           <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Home</a>
           <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">About</a>
           <a href="donation.html#ways-to-give" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-full text-sm">Donate</a>
           <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Contact</a>
-          <a href="share.html" class="text-black dark:text-white font-semibold text-sm">Share</a>
-          <button onclick="toggleDarkMode()" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
+          <a href="share.html" aria-current="page" class="text-black dark:text-white font-semibold text-sm">Share</a>
+          <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
         </div>
-        <div class="md:hidden">
-          <button onclick="toggleMenu()" class="text-gray-600 dark:text-gray-300 hover:text-gold">
+        <div class="md:hidden flex items-center space-x-2">
+          <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
+          <button onclick="toggleMenu()" aria-label="Open menu" class="text-gray-600 dark:text-gray-300 hover:text-gold">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
@@ -109,9 +112,9 @@
     <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 px-4 pb-4">
       <a href="index.html" class="block py-2">Home</a>
       <a href="about.html" class="block py-2">About</a>
-      <a href="donation.html" class="block py-2">Donations</a>
+      <a href="donation.html#ways-to-give" class="block py-2">Donate</a>
       <a href="contact.html" class="block py-2">Contact</a>
-      <a href="share.html" class="block py-2">Share</a>
+      <a href="share.html" aria-current="page" class="block py-2 font-semibold text-gold">Share</a>
     </div>
   </nav>
 
@@ -133,7 +136,7 @@
         <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md defined-box hover-lift scale-in">
           <h3 class="text-xl font-semibold mb-3">Instagram</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">Follow us and share our posts with your community.</p>
-          <a href="https://www.instagram.com/the.rihla.foundation" target="_blank" class="bg-gold hover:bg-dark-gold text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block">Follow Us</a>
+          <a href="https://www.instagram.com/the.rihla.foundation" target="_blank" rel="noopener noreferrer" class="bg-gold hover:bg-dark-gold text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block">Follow Us</a>
         </div>
 
         <!-- Copy Link -->
@@ -147,7 +150,7 @@
         <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md defined-box hover-lift scale-in fade-in-delay-2">
           <h3 class="text-xl font-semibold mb-3">Email</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">Tell someone about our mission via email.</p>
-          <a href="mailto:?subject=Support The Rihla Foundation&body=Check out The Rihla Foundation: https://rihlafoundation.com" class="bg-gold hover:bg-dark-gold text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block">Share by Email</a>
+          <a href="mailto:?subject=Support%20The%20Rihla%20Foundation&amp;body=Check%20out%20The%20Rihla%20Foundation%3A%20https%3A%2F%2Frihlafoundation.org" class="bg-gold hover:bg-dark-gold text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block">Share by Email</a>
         </div>
 
       </div>
@@ -171,14 +174,12 @@
   <footer class="bg-gray-100 dark:bg-gray-900 py-6">
     <div class="max-w-6xl mx-auto text-center">
       <img src="logo.png" alt="Rihla Foundation Logo" class="h-10 mx-auto mb-2">
-      <p class="text-gray-600 dark:text-gray-400">© 2025 The Rihla Foundation — Making Hajj Accessible</p>
+      <p class="text-gray-600 dark:text-gray-400">© 2026 The Rihla Foundation — Making Hajj Accessible</p>
     </div>
   </footer>
 
   <script>
-    function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
-    function toggleDarkMode(){ document.documentElement.classList.toggle('dark'); }
-    function copyLink(){ navigator.clipboard.writeText("https://rihlafoundation.com"); alert("Link copied!"); }
+    function copyLink(){ copyText("https://rihlafoundation.org", "Link copied!"); }
   </script>
 </body>
 </html>

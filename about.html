@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About – The Rihla Foundation</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <script src="js/site.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -29,18 +31,19 @@
       <div class="flex justify-between items-center h-16">
         <a href="index.html" class="flex items-center space-x-3">
           <img src="logo.png" alt="Rihla Foundation Logo" class="h-10 w-auto">
-          <span class="text-xl font-bold text-black dark:text-white">The Rihla Foundation</span>
+          <span class="text-lg sm:text-xl font-bold text-black dark:text-white">The Rihla Foundation</span>
         </a>
         <div class="hidden md:flex items-center space-x-6">
           <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Home</a>
-          <a href="about.html" class="text-black dark:text-white font-semibold text-sm">About</a>
+          <a href="about.html" aria-current="page" class="text-black dark:text-white font-semibold text-sm">About</a>
           <a href="donation.html#ways-to-give" class="bg-gold hover:bg-dark-gold text-white px-4 py-2 rounded-full text-sm">Donate</a>
           <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Contact</a>
           <a href="share.html" class="text-gray-600 dark:text-gray-300 hover:text-gold text-sm">Share</a>
-          <button onclick="toggleDarkMode()" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
+          <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
         </div>
-        <div class="md:hidden">
-          <button onclick="toggleMenu()" class="text-gray-600 dark:text-gray-300 hover:text-gold">
+        <div class="md:hidden flex items-center space-x-2">
+          <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">🌙</button>
+          <button onclick="toggleMenu()" aria-label="Open menu" class="text-gray-600 dark:text-gray-300 hover:text-gold">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
@@ -50,7 +53,7 @@
     </div>
     <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 px-4 pb-4">
       <a href="index.html" class="block py-2">Home</a>
-      <a href="about.html" class="block py-2">About</a>
+      <a href="about.html" aria-current="page" class="block py-2 font-semibold text-gold">About</a>
       <a href="donation.html#ways-to-give" class="block py-2">Donate</a>
       <a href="contact.html" class="block py-2">Contact</a>
       <a href="share.html" class="block py-2">Share</a>
@@ -72,7 +75,7 @@
   </section>
 
   <!-- Story -->
-  <section class="py-20">
+  <section class="py-20 overflow-x-hidden">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6">
       <div class="reveal-left">
         <h2 class="text-3xl font-bold mb-4">Our Story</h2>
@@ -98,7 +101,7 @@
       <p class="text-lg text-gray-600 dark:text-gray-300 mb-12 reveal stagger-1">
         We are a group of high school students from Seattle, Washington, with one vision: making the sacred journey of Hajj and Umrah possible for underprivileged Muslims.
       </p>
-      <img src="founders.JPG" alt="Founders" class="rounded-2xl shadow-lg mx-auto mb-12 max-w-2xl defined-box reveal-scale hover-lift">
+      <img src="founders.JPG" alt="Founders" class="w-full rounded-2xl shadow-lg mx-auto mb-12 max-w-2xl defined-box reveal-scale hover-lift">
       <div class="grid md:grid-cols-4 gap-8">
         <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 defined-box hover-lift reveal-scale stagger-1">
           <h3 class="text-xl font-semibold">Nawfal Baqai</h3>
@@ -114,7 +117,7 @@
         </div>
         <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 defined-box hover-lift reveal-scale stagger-4">
           <h3 class="text-xl font-semibold">Yousha Khwaja</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Operations Lead — Handles legal and  technical logistics.</p>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Operations Lead — Handles legal and technical logistics.</p>
         </div>
       </div>
     </div>
@@ -124,14 +127,10 @@
   <footer class="bg-gray-100 dark:bg-gray-900 py-6">
     <div class="max-w-6xl mx-auto text-center">
       <img src="logo.png" alt="Rihla Foundation Logo" class="h-10 mx-auto mb-2">
-      <p class="text-gray-600 dark:text-gray-400">© 2025 The Rihla Foundation — Making Hajj and UmrahAccessible</p>
+      <p class="text-gray-600 dark:text-gray-400">© 2026 The Rihla Foundation — Making Hajj and Umrah Accessible</p>
     </div>
   </footer>
 
-  <script>
-    function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('hidden'); }
-    function toggleDarkMode(){ document.documentElement.classList.toggle('dark'); }
-  </script>
   <script src="js/animations.js"></script>
 </body>
 </html>
